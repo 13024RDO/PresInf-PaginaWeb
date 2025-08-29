@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VacunaSegura - Información sobre Vacunas Infantiles</title>
-    <!-- Agregando Tailwind CSS desde CDN y configurando animaciones personalizadas -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -55,25 +56,29 @@
         }
     </script>
 </head>
+
 <body class="bg-gradient-to-br from-blue-50 to-cyan-50 min-h-screen">
     <!-- Header -->
     <header class="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-blue-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-3 animate-fade-in">
-                    <div class="p-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg shadow-lg animate-pulse-slow">
-                        <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">VacunaSegura</h1>
+
+                    <h1
+                        class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                        PresInf</h1>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Inicio</a>
-                    <a href="#noticias" class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Noticias</a>
-                    <a href="#informes" class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Informes</a>
-                    <a href="#calendario" class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Calendario</a>
-                    <a href="#testimonios" class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Testimonios</a>
+                    <a href="#inicio"
+                        class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Inicio</a>
+                    <a href="#noticias"
+                        class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Noticias</a>
+                    <a href="#informes"
+                        class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Informes</a>
+                    <a href="#calendario"
+                        class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Calendario</a>
+                    <a href="#testimonios"
+                        class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Testimonios</a>
                 </div>
             </nav>
         </div>
@@ -86,37 +91,44 @@
             <div class="text-center mb-12 animate-slide-up">
                 <div class="mb-8 relative">
                     <!-- Updated image path to img folder -->
-                    <img src="img/panoramic-medical-center-with-families-and-children.png" 
-                         alt="Centro médico panorámico con familias y niños recibiendo vacunas"
-                         class="w-full h-96 object-cover rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
+                    <img src="img/centroMedico.jpg"
+                        alt="Centro médico panorámico con familias y niños recibiendo vacunas"
+                        class="w-full h-96 object-cover rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent rounded-2xl"></div>
                 </div>
                 <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in">
-                    Protege el <span class="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Futuro</span> de tu Hijo
+                    Protege el <span
+                        class="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Futuro</span>
+                    de tu Hijo
                 </h2>
                 <p class="text-xl text-gray-700 mb-6 max-w-4xl mx-auto leading-relaxed animate-fade-in">
-                    Las vacunas son una de las herramientas más efectivas de la medicina moderna para prevenir enfermedades
-                    graves. Información confiable y actualizada sobre la importancia de la vacunación infantil, basada en
+                    Las vacunas son una de las herramientas más efectivas de la medicina moderna para prevenir
+                    enfermedades
+                    graves. Información confiable y actualizada sobre la importancia de la vacunación infantil, basada
+                    en
                     evidencia científica y recomendaciones médicas internacionales.
                 </p>
                 <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-in">
-                    Cada año, las vacunas salvan entre 2 y 3 millones de vidas en todo el mundo. Protegen no solo a tu hijo,
+                    Cada año, las vacunas salvan entre 2 y 3 millones de vidas en todo el mundo. Protegen no solo a tu
+                    hijo,
                     sino también a toda la comunidad a través de la inmunidad colectiva.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center animate-bounce-gentle">
-                    <button class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
+                    <button
+                        class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6"/>
-                            <line x1="8" y1="2" x2="8" y2="6"/>
-                            <line x1="3" y1="10" x2="21" y2="10"/>
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
                         </svg>
                         <span>Ver Calendario de Vacunación</span>
                     </button>
-                    <button class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+                    <button
+                        class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <polyline points="14,2 14,8 20,8"/>
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14,2 14,8 20,8" />
                         </svg>
                         <span>Leer Informes Médicos</span>
                     </button>
@@ -130,25 +142,30 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 animate-fade-in">
                 <h3 class="text-3xl font-bold text-gray-900 mb-4">Impacto Global de las Vacunas</h3>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Las vacunas han transformado la salud pública mundial</p>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Las vacunas han transformado la salud pública mundial
+                </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float">
+                <div
+                    class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float">
                     <div class="text-4xl font-bold text-blue-600 mb-2">2-3M</div>
                     <div class="text-gray-900 font-semibold mb-1">Vidas salvadas anualmente</div>
                     <div class="text-sm text-gray-500">Según datos de la OMS</div>
                 </div>
-                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float" style="animation-delay: 0.2s">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float"
+                    style="animation-delay: 0.2s">
                     <div class="text-4xl font-bold text-cyan-600 mb-2">95%</div>
                     <div class="text-gray-900 font-semibold mb-1">Efectividad promedio</div>
                     <div class="text-sm text-gray-500">En prevención de enfermedades</div>
                 </div>
-                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float" style="animation-delay: 0.4s">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float"
+                    style="animation-delay: 0.4s">
                     <div class="text-4xl font-bold text-blue-600 mb-2">20+</div>
                     <div class="text-gray-900 font-semibold mb-1">Enfermedades prevenibles</div>
                     <div class="text-sm text-gray-500">Incluidas en esquemas nacionales</div>
                 </div>
-                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float" style="animation-delay: 0.6s">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float"
+                    style="animation-delay: 0.6s">
                     <div class="text-4xl font-bold text-cyan-600 mb-2">200+</div>
                     <div class="text-gray-900 font-semibold mb-1">Años de investigación</div>
                     <div class="text-sm text-gray-500">Desde la primera vacuna</div>
@@ -162,69 +179,89 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-fade-in">
                 <h3 class="text-4xl font-bold text-gray-900 mb-4">¿Por Qué Son Tan Importantes las Vacunas?</h3>
-                <p class="text-xl text-gray-600">Entender el impacto real de la vacunación en la salud infantil y comunitaria</p>
+                <p class="text-xl text-gray-600">Entender el impacto real de la vacunación en la salud infantil y
+                    comunitaria</p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-                <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up">
+                <div
+                    class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up">
                     <div class="flex items-center mb-6">
                         <div class="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl mr-4">
-                            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                             </svg>
                         </div>
                         <h4 class="text-2xl font-bold text-gray-900">Protección Individual</h4>
                     </div>
-                    <p class="text-gray-700 mb-4 leading-relaxed">Las vacunas entrenan al sistema inmunológico para reconocer y combatir enfermedades específicas. Cuando tu hijo está vacunado, su cuerpo puede responder rápidamente si se expone a la enfermedad real.</p>
-                    <p class="text-gray-700 leading-relaxed">Esto significa que es mucho menos probable que contraiga la enfermedad, y si lo hace, los síntomas suelen ser más leves y de menor duración.</p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Las vacunas entrenan al sistema inmunológico para
+                        reconocer y combatir enfermedades específicas. Cuando tu hijo está vacunado, su cuerpo puede
+                        responder rápidamente si se expone a la enfermedad real.</p>
+                    <p class="text-gray-700 leading-relaxed">Esto significa que es mucho menos probable que contraiga la
+                        enfermedad, y si lo hace, los síntomas suelen ser más leves y de menor duración.</p>
                 </div>
-                <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.2s">
+                <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up"
+                    style="animation-delay: 0.2s">
                     <div class="flex items-center mb-6">
                         <div class="p-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl mr-4">
-                            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22,4 12,14.01 9,11.01"/>
+                            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22,4 12,14.01 9,11.01" />
                             </svg>
                         </div>
                         <h4 class="text-2xl font-bold text-gray-900">Inmunidad Colectiva</h4>
                     </div>
-                    <p class="text-gray-700 mb-4 leading-relaxed">Cuando la mayoría de la comunidad está vacunada, se crea una "barrera" de protección que beneficia a todos, especialmente a bebés muy pequeños, personas con sistemas inmunológicos debilitados.</p>
-                    <p class="text-gray-700 leading-relaxed">Esta protección comunitaria ha logrado erradicar enfermedades como la polio en muchas partes del mundo.</p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Cuando la mayoría de la comunidad está vacunada, se
+                        crea una "barrera" de protección que beneficia a todos, especialmente a bebés muy pequeños,
+                        personas con sistemas inmunológicos debilitados.</p>
+                    <p class="text-gray-700 leading-relaxed">Esta protección comunitaria ha logrado erradicar
+                        enfermedades como la polio en muchas partes del mundo.</p>
                 </div>
             </div>
-            
+
             <!-- Diseases Grid -->
             <div class="bg-white rounded-2xl p-8 shadow-xl animate-fade-in">
-                <h4 class="text-2xl font-bold text-gray-900 mb-8 text-center">Enfermedades Prevenibles por Vacunación</h4>
+                <h4 class="text-2xl font-bold text-gray-900 mb-8 text-center">Enfermedades Prevenibles por Vacunación
+                </h4>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <div
+                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                         <div class="font-bold text-gray-900 mb-2">Sarampión</div>
                         <div class="text-blue-600 font-semibold">99% efectividad</div>
                     </div>
-                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <div
+                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                         <div class="font-bold text-gray-900 mb-2">Poliomielitis</div>
                         <div class="text-blue-600 font-semibold">99% efectividad</div>
                     </div>
-                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <div
+                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                         <div class="font-bold text-gray-900 mb-2">Hepatitis B</div>
                         <div class="text-cyan-600 font-semibold">95% efectividad</div>
                     </div>
-                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <div
+                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                         <div class="font-bold text-gray-900 mb-2">Tos Ferina</div>
                         <div class="text-cyan-600 font-semibold">85% efectividad</div>
                     </div>
-                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <div
+                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                         <div class="font-bold text-gray-900 mb-2">Difteria</div>
                         <div class="text-blue-600 font-semibold">97% efectividad</div>
                     </div>
-                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <div
+                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                         <div class="font-bold text-gray-900 mb-2">Tétanos</div>
                         <div class="text-blue-600 font-semibold">100% efectividad</div>
                     </div>
-                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <div
+                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                         <div class="font-bold text-gray-900 mb-2">Varicela</div>
                         <div class="text-cyan-600 font-semibold">90% efectividad</div>
                     </div>
-                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <div
+                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                         <div class="font-bold text-gray-900 mb-2">Paperas</div>
                         <div class="text-cyan-600 font-semibold">88% efectividad</div>
                     </div>
@@ -238,69 +275,92 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-fade-in">
                 <h3 class="text-4xl font-bold text-gray-900 mb-4">Últimas Noticias</h3>
-                <p class="text-xl text-gray-600">Mantente informado con las últimas actualizaciones sobre vacunación infantil</p>
+                <p class="text-xl text-gray-600">Mantente informado con las últimas actualizaciones sobre vacunación
+                    infantil</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up">
+                <article
+                    class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up">
                     <div class="relative">
                         <!-- Updated image path to img folder -->
-                        <img src="img/who-world-health-organization-logo-and-medical-res.png" alt="OMS" class="w-full h-48 object-cover">
+                        <img src="img/who-world-health-organization-logo-and-medical-res.png" alt="OMS"
+                            class="w-full h-48 object-cover">
                         <div class="absolute top-4 left-4">
                             <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">OMS</span>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h4 class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">Nueva Recomendación para Vacuna COVID-19 en Niños</h4>
+                        <h4
+                            class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">
+                            Nueva Recomendación para Vacuna COVID-19 en Niños</h4>
                         <div class="flex items-center text-gray-500 text-sm mb-4">
-                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12,6 12,12 16,14"/>
+                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12,6 12,12 16,14" />
                             </svg>
                             Hace 2 días
                         </div>
-                        <p class="text-gray-700 leading-relaxed">La OMS actualiza sus recomendaciones para la vacunación contra COVID-19 en población pediátrica, con una reducción del 80% en hospitalizaciones.</p>
+                        <p class="text-gray-700 leading-relaxed">La OMS actualiza sus recomendaciones para la vacunación
+                            contra COVID-19 en población pediátrica, con una reducción del 80% en hospitalizaciones.</p>
                     </div>
                 </article>
-                
-                <article class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up" style="animation-delay: 0.2s">
+
+                <article
+                    class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up"
+                    style="animation-delay: 0.2s">
                     <div class="relative">
                         <!-- Updated image path to img folder -->
-                        <img src="img/national-vaccination-campaign-poster-with-children.png" alt="Campaña Nacional" class="w-full h-48 object-cover">
+                        <img src="img/national-vaccination-campaign-poster-with-children.png" alt="Campaña Nacional"
+                            class="w-full h-48 object-cover">
                         <div class="absolute top-4 left-4">
-                            <span class="bg-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Ministerio de Salud</span>
+                            <span class="bg-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Ministerio
+                                de Salud</span>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h4 class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">Campaña Nacional de Vacunación 2024</h4>
+                        <h4
+                            class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">
+                            Campaña Nacional de Vacunación 2024</h4>
                         <div class="flex items-center text-gray-500 text-sm mb-4">
-                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12,6 12,12 16,14"/>
+                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12,6 12,12 16,14" />
                             </svg>
                             Hace 1 semana
                         </div>
-                        <p class="text-gray-700 leading-relaxed">Campaña de 6 meses con objetivo de alcanzar 95% de cobertura en niños menores de 5 años, con énfasis en comunidades rurales.</p>
+                        <p class="text-gray-700 leading-relaxed">Campaña de 6 meses con objetivo de alcanzar 95% de
+                            cobertura en niños menores de 5 años, con énfasis en comunidades rurales.</p>
                     </div>
                 </article>
-                
-                <article class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up" style="animation-delay: 0.4s">
+
+                <article
+                    class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up"
+                    style="animation-delay: 0.4s">
                     <div class="relative">
                         <!-- Updated image path to img folder -->
-                        <img src="img/medical-research-laboratory-with-scientists-studyi.png" alt="Investigación" class="w-full h-48 object-cover">
+                        <img src="img/medical-research-laboratory-with-scientists-studyi.png" alt="Investigación"
+                            class="w-full h-48 object-cover">
                         <div class="absolute top-4 left-4">
-                            <span class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Investigación</span>
+                            <span
+                                class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Investigación</span>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h4 class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">Estudio Confirma Seguridad de Vacunas Combinadas</h4>
+                        <h4
+                            class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">
+                            Estudio Confirma Seguridad de Vacunas Combinadas</h4>
                         <div class="flex items-center text-gray-500 text-sm mb-4">
-                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12,6 12,12 16,14"/>
+                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12,6 12,12 16,14" />
                             </svg>
                             Hace 2 semanas
                         </div>
-                        <p class="text-gray-700 leading-relaxed">Estudio de 10 años con 250,000 niños confirma que las vacunas combinadas mantienen la misma efectividad sin aumentar riesgos.</p>
+                        <p class="text-gray-700 leading-relaxed">Estudio de 10 años con 250,000 niños confirma que las
+                            vacunas combinadas mantienen la misma efectividad sin aumentar riesgos.</p>
                     </div>
                 </article>
             </div>
@@ -315,12 +375,15 @@
                 <p class="text-xl text-gray-600">Documentos científicos y reportes oficiales sobre vacunación</p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up">
+                <div
+                    class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up">
                     <div class="relative">
                         <!-- Updated image path to img folder -->
-                        <img src="img/medical-safety-report-charts-and-graphs-showing-va.png" alt="Reporte de Seguridad" class="w-full h-64 object-cover">
+                        <img src="img/medical-safety-report-charts-and-graphs-showing-va.png" alt="Reporte de Seguridad"
+                            class="w-full h-64 object-cover">
                         <div class="absolute top-4 right-4">
-                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2024</span>
+                            <span
+                                class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2024</span>
                         </div>
                     </div>
                     <div class="p-8">
@@ -328,43 +391,50 @@
                         <p class="text-gray-600 mb-6">Análisis completo de eventos adversos y eficacia</p>
                         <div class="space-y-3 mb-8">
                             <div class="flex items-center text-gray-700">
-                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22,4 12,14.01 9,11.01"/>
+                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22,4 12,14.01 9,11.01" />
                                 </svg>
                                 Análisis de 50 millones de dosis administradas
                             </div>
                             <div class="flex items-center text-gray-700">
-                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22,4 12,14.01 9,11.01"/>
+                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22,4 12,14.01 9,11.01" />
                                 </svg>
                                 Tasa de eventos adversos graves: 0.001%
                             </div>
                             <div class="flex items-center text-gray-700">
-                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22,4 12,14.01 9,11.01"/>
+                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22,4 12,14.01 9,11.01" />
                                 </svg>
                                 Eficacia promedio: 94.2%
                             </div>
                         </div>
-                        <button class="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
+                        <button
+                            class="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
                             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14,2 14,8 20,8"/>
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14,2 14,8 20,8" />
                             </svg>
                             <span>Descargar Reporte Completo</span>
                         </button>
                     </div>
                 </div>
-                
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up" style="animation-delay: 0.2s">
+
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up"
+                    style="animation-delay: 0.2s">
                     <div class="relative">
                         <!-- Updated image path to img folder -->
-                        <img src="img/pediatric-vaccination-clinical-guide-with-doctor-e.png" alt="Guía Clínica" class="w-full h-64 object-cover">
+                        <img src="img/pediatric-vaccination-clinical-guide-with-doctor-e.png" alt="Guía Clínica"
+                            class="w-full h-64 object-cover">
                         <div class="absolute top-4 right-4">
-                            <span class="bg-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Actualizada</span>
+                            <span
+                                class="bg-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Actualizada</span>
                         </div>
                     </div>
                     <div class="p-8">
@@ -372,31 +442,35 @@
                         <p class="text-gray-600 mb-6">Protocolo médico para profesionales de la salud</p>
                         <div class="space-y-3 mb-8">
                             <div class="flex items-center text-gray-700">
-                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22,4 12,14.01 9,11.01"/>
+                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22,4 12,14.01 9,11.01" />
                                 </svg>
                                 Esquemas de vacunación por edad
                             </div>
                             <div class="flex items-center text-gray-700">
-                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22,4 12,14.01 9,11.01"/>
+                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22,4 12,14.01 9,11.01" />
                                 </svg>
                                 Contraindicaciones y precauciones
                             </div>
                             <div class="flex items-center text-gray-700">
-                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22,4 12,14.01 9,11.01"/>
+                                <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22,4 12,14.01 9,11.01" />
                                 </svg>
                                 Manejo de reacciones adversas
                             </div>
                         </div>
-                        <button class="w-full border-2 border-blue-600 text-blue-600 py-3 px-6 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+                        <button
+                            class="w-full border-2 border-blue-600 text-blue-600 py-3 px-6 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
                             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14,2 14,8 20,8"/>
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14,2 14,8 20,8" />
                             </svg>
                             <span>Ver Guía Completa</span>
                         </button>
@@ -413,59 +487,83 @@
                 <h3 class="text-4xl font-bold text-gray-900 mb-4">Calendario de Vacunación</h3>
                 <p class="text-xl text-gray-600">Esquema oficial de vacunación para niños de 0 a 18 años</p>
             </div>
-            <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
+            <div
+                class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
                 <div class="lg:flex">
                     <div class="lg:w-1/2">
                         <!-- Updated image path to img folder -->
-                        <img src="img/vaccination-calendar-timeline-showing-different-ag.png" alt="Calendario de Vacunación" class="w-full h-full object-cover">
+                        <img src="img/vaccination-calendar-timeline-showing-different-ag.png"
+                            alt="Calendario de Vacunación" class="w-full h-full object-cover">
                     </div>
                     <div class="lg:w-1/2 p-8 lg:p-12">
                         <div class="flex items-center mb-8">
                             <div class="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl mr-4">
-                                <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                    <line x1="16" y1="2" x2="16" y2="6"/>
-                                    <line x1="8" y1="2" x2="8" y2="6"/>
-                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                    <line x1="16" y1="2" x2="16" y2="6" />
+                                    <line x1="8" y1="2" x2="8" y2="6" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
                                 </svg>
                             </div>
                             <h4 class="text-2xl font-bold text-gray-900">Esquema Nacional de Vacunación</h4>
                         </div>
                         <div class="space-y-8">
-                            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            <div
+                                class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                                 <h5 class="text-lg font-bold text-blue-600 mb-3">0-2 meses</h5>
                                 <ul class="space-y-2 text-gray-700">
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Hepatitis B (al nacer)</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>BCG (tuberculosis)</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Pentavalente (1ra dosis)</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Polio (1ra dosis)</li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Hepatitis B (al nacer)
+                                    </li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>BCG (tuberculosis)</li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Pentavalente (1ra
+                                        dosis)</li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Polio (1ra dosis)</li>
                                 </ul>
                             </div>
-                            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            <div
+                                class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                                 <h5 class="text-lg font-bold text-cyan-600 mb-3">4-6 meses</h5>
                                 <ul class="space-y-2 text-gray-700">
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Pentavalente (2da y 3ra dosis)</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Polio (2da y 3ra dosis)</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Rotavirus</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Neumococo</li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Pentavalente (2da y 3ra
+                                        dosis)</li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Polio (2da y 3ra dosis)
+                                    </li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Rotavirus</li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Neumococo</li>
                                 </ul>
                             </div>
-                            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            <div
+                                class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                                 <h5 class="text-lg font-bold text-blue-600 mb-3">12-15 meses</h5>
                                 <ul class="space-y-2 text-gray-700">
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Triple viral (SRP)</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Varicela</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Hepatitis A</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Refuerzos DPT y Polio</li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Triple viral (SRP)</li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Varicela</li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Hepatitis A</li>
+                                    <li class="flex items-center"><span
+                                            class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Refuerzos DPT y Polio
+                                    </li>
                                 </ul>
                             </div>
                         </div>
-                        <button class="w-full mt-8 bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
+                        <button
+                            class="w-full mt-8 bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
                             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                <line x1="16" y1="2" x2="16" y2="6"/>
-                                <line x1="8" y1="2" x2="8" y2="6"/>
-                                <line x1="3" y1="10" x2="21" y2="10"/>
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
                             </svg>
                             <span>Descargar Calendario Completo</span>
                         </button>
@@ -483,10 +581,12 @@
                 <p class="text-xl text-gray-600">Experiencias de padres y profesionales de la salud</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up">
+                <div
+                    class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up">
                     <div class="flex items-center mb-6">
                         <!-- Updated image path to img folder -->
-                        <img src="img/happy-mother-with-children--professional-headshot.png" alt="María González" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-blue-100">
+                        <img src="img/happy-mother-with-children--professional-headshot.png" alt="María González"
+                            class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-blue-100">
                         <div>
                             <h4 class="font-bold text-gray-900">María González</h4>
                             <p class="text-gray-600">Madre de 2 hijos</p>
@@ -494,28 +594,37 @@
                     </div>
                     <div class="flex mb-4">
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                     </div>
-                    <p class="text-gray-700 leading-relaxed">"Gracias a la información clara que encontré aquí, pude tomar decisiones informadas sobre la vacunación de mis hijos. Mis hijos están completamente vacunados y nunca han tenido complicaciones graves."</p>
+                    <p class="text-gray-700 leading-relaxed">"Gracias a la información clara que encontré aquí, pude
+                        tomar decisiones informadas sobre la vacunación de mis hijos. Mis hijos están completamente
+                        vacunados y nunca han tenido complicaciones graves."</p>
                 </div>
-                
-                <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.2s">
+
+                <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up"
+                    style="animation-delay: 0.2s">
                     <div class="flex items-center mb-6">
                         <!-- Updated image path to img folder -->
-                        <img src="img/professional-pediatrician-doctor-in-white-coat--ma.png" alt="Dr. Carlos Mendoza" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-cyan-100">
+                        <img src="img/professional-pediatrician-doctor-in-white-coat--ma.png" alt="Dr. Carlos Mendoza"
+                            class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-cyan-100">
                         <div>
                             <h4 class="font-bold text-gray-900">Dr. Carlos Mendoza</h4>
                             <p class="text-gray-600">Pediatra - 15 años</p>
@@ -523,28 +632,37 @@
                     </div>
                     <div class="flex mb-4">
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                     </div>
-                    <p class="text-gray-700 leading-relaxed">"Como pediatra, recomiendo esta página a todos mis pacientes. He visto cómo las vacunas han reducido drásticamente las hospitalizaciones por enfermedades prevenibles. Es un recurso invaluable."</p>
+                    <p class="text-gray-700 leading-relaxed">"Como pediatra, recomiendo esta página a todos mis
+                        pacientes. He visto cómo las vacunas han reducido drásticamente las hospitalizaciones por
+                        enfermedades prevenibles. Es un recurso invaluable."</p>
                 </div>
-                
-                <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.4s">
+
+                <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up"
+                    style="animation-delay: 0.4s">
                     <div class="flex items-center mb-6">
                         <!-- Updated image path to img folder -->
-                        <img src="img/professional-nurse-in-medical-uniform--female-heal.png" alt="Ana Rodríguez" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-blue-100">
+                        <img src="img/professional-nurse-in-medical-uniform--female-heal.png" alt="Ana Rodríguez"
+                            class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-blue-100">
                         <div>
                             <h4 class="font-bold text-gray-900">Ana Rodríguez</h4>
                             <p class="text-gray-600">Enfermera especializada</p>
@@ -552,22 +670,29 @@
                     </div>
                     <div class="flex mb-4">
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                         <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
                         </svg>
                     </div>
-                    <p class="text-gray-700 leading-relaxed">"Excelente recurso para educar a las familias. Como enfermera especializada en inmunizaciones, utilizo esta página para complementar mis explicaciones a los padres sobre las vacunas."</p>
+                    <p class="text-gray-700 leading-relaxed">"Excelente recurso para educar a las familias. Como
+                        enfermera especializada en inmunizaciones, utilizo esta página para complementar mis
+                        explicaciones a los padres sobre las vacunas."</p>
                 </div>
             </div>
         </div>
@@ -580,30 +705,40 @@
                 <div class="animate-fade-in">
                     <div class="flex items-center mb-4">
                         <div class="p-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg mr-3">
-                            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                             </svg>
                         </div>
-                        <h4 class="text-xl font-bold">VacunaSegura</h4>
+                        <h4 class="text-xl font-bold">PresInf</h4>
                     </div>
-                    <p class="text-gray-300 leading-relaxed">Información confiable sobre vacunación infantil basada en evidencia científica.</p>
+                    <p class="text-gray-300 leading-relaxed">Información confiable sobre vacunación infantil basada en
+                        evidencia científica.</p>
                 </div>
                 <div class="animate-fade-in" style="animation-delay: 0.1s">
                     <h5 class="text-lg font-semibold mb-4 text-blue-400">Recursos</h5>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Calendario de Vacunación</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Informes Médicos</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Preguntas Frecuentes</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Centros de Vacunación</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Calendario
+                                de Vacunación</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Informes
+                                Médicos</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Preguntas
+                                Frecuentes</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Centros de
+                                Vacunación</a></li>
                     </ul>
                 </div>
                 <div class="animate-fade-in" style="animation-delay: 0.2s">
                     <h5 class="text-lg font-semibold mb-4 text-cyan-400">Organizaciones</h5>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">OMS</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">UNICEF</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Ministerio de Salud</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Academia de Pediatría</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">OMS</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">UNICEF</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Ministerio
+                                de Salud</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Academia
+                                de Pediatría</a></li>
                     </ul>
                 </div>
                 <div class="animate-fade-in" style="animation-delay: 0.3s">
@@ -616,7 +751,8 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2024 VacunaSegura. Todos los derechos reservados. Información con fines educativos únicamente.</p>
+                <p class="text-gray-400">&copy; 2024 VacunaSegura. Todos los derechos reservados. Información con fines
+                    educativos únicamente.</p>
             </div>
         </div>
     </footer>
@@ -661,4 +797,5 @@
         });
     </script>
 </body>
+
 </html>
