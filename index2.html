@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VacunaSegura - Información sobre Vacunas Infantiles</title>
+  <link rel="stylesheet" href="./app/globals.css">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+  <!-- Loader -->
+  <div class="" id="loader">
+    
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <nav class="navbar">
+        <div class="logo">
+          <h1 class="logo-text">PresInf</h1>
+        </div>
+        <div class="menu">
+          <a href="#inicio">Inicio</a>
+          <a href="#noticias">Noticias</a>
+          <a href="#informes">Informes</a>
+          <a href="#calendario">Calendario</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero con carrusel -->
+  <section id="inicio" class="hero">
+    <div id="carousel" class="carousel">
+      <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200" class="carousel-img active" />
+      <img src="https://images.unsplash.com/photo-1580281657521-1c1d1f9d51f6?w=1200" class="carousel-img" />
+      <img src="https://images.unsplash.com/photo-1623492702235-9c520fbe4b47?w=1200" class="carousel-img" />
+      <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=1200" class="carousel-img" />
+    </div>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h2 class="hero-title">Protege el <span class="highlight">Futuro</span></h2>
+      <p class="hero-subtitle">Las vacunas salvan millones de vidas y protegen a tu familia y comunidad.</p>
+      <div class="hero-buttons">
+        <button class="btn primary">Calendario</button>
+        <button class="btn secondary">Informes</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Noticias -->
+  <section id="noticias" class="section">
+    <h2 class="section-title">Últimas Noticias</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1580281658629-8c73eb7e1f5c?w=800" alt="Noticia 1">
+        <h3>Campaña Nacional de Vacunación</h3>
+        <p>Se lanzó la nueva campaña nacional para reforzar la vacunación en niños menores de 5 años.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800" alt="Noticia 2">
+        <h3>Vacunas Gratuitas</h3>
+        <p>El Ministerio de Salud recuerda que todas las vacunas del calendario oficial son gratuitas.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=800" alt="Noticia 3">
+        <h3>Nuevos Centros de Vacunación</h3>
+        <p>Se habilitaron nuevos centros en barrios periféricos para garantizar el acceso a toda la población.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Informes -->
+  <section id="informes" class="section bg-light">
+    <h2 class="section-title">Informes y Estadísticas</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1615461065842-befb38d84b57?w=800" alt="Informe 1">
+        <h3>Informe Nacional 2024</h3>
+        <p>Descarga el informe completo sobre la cobertura de vacunación en Argentina durante el último año.</p>
+        <a href="#" class="btn primary">Descargar PDF</a>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1588776814546-ec2b18872c8d?w=800" alt="Informe 2">
+        <h3>Estadísticas Provinciales</h3>
+        <p>Consulta las estadísticas por provincia y conoce los avances en cada región.</p>
+        <a href="#" class="btn secondary">Ver Detalles</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="stat">
+      <h3>95%</h3>
+      <p>Cobertura Nacional</p>
+    </div>
+    <div class="stat">
+      <h3>24</h3>
+      <p>Vacunas en el Calendario Oficial</p>
+    </div>
+    <div class="stat">
+      <h3>50k+</h3>
+      <p>Niños vacunados este año</p>
+    </div>
+    <div class="stat">
+      <h3>300+</h3>
+      <p>Centros de Vacunación</p>
+    </div>
+  </section>
+
+  <!-- Calendario -->
+  <section id="calendario" class="section">
+    <h2 class="section-title">Calendario Nacional de Vacunación</h2>
+    <div class="calendar">
+      <div class="calendar-item">
+        <h3>Recién nacidos</h3>
+        <p>BCG, Hepatitis B.</p>
+      </div>
+      <div class="calendar-item">
+        <h3>2 meses</h3>
+        <p>Polio, Pentavalente, Neumococo, Rotavirus.</p>
+      </div>
+      <div class="calendar-item">
+        <h3>6 meses</h3>
+        <p>Gripe, Pentavalente, Polio.</p>
+      </div>
+      <div class="calendar-item">
+        <h3>1 año</h3>
+        <p>Triple Viral, Hepatitis A.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 PresInf. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Loader
+    window.addEventListener("load", () => {
+      document.getElementById("loader").classList.add("hide");
+
+      // Animación entrada con GSAP
+      gsap.from(".hero-title", { opacity: 0, y: -50, duration: 1 });
+      gsap.from(".hero-subtitle", { opacity: 0, y: 30, delay: 0.3, duration: 1 });
+      gsap.from(".hero-buttons button", { opacity: 0, scale: 0.8, stagger: 0.2, delay: 0.6, duration: 0.8 });
+
+      // Animación de las imágenes del carrusel
+      gsap.from(".carousel-img", { opacity: 0, scale: 1.1, duration: 1, stagger: 0.5 });
+
+      // Animación de las cards
+      gsap.from(".card", { opacity: 0, y: 50, stagger: 0.3, delay: 1.2, duration: 1 });
+    });
+
+    // Carrusel
+    const imgs = document.querySelectorAll('.carousel-img');
+    let idx = 0;
+    setInterval(() => {
+      imgs[idx].classList.remove("active");
+      idx = (idx + 1) % imgs.length;
+      imgs[idx].classList.add("active");
+    }, 4000);
+  </script>
+</body>
+</html>

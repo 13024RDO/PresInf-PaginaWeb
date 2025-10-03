@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrusel con GSAP</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    .slide p {
+      font-size: 1.5rem;
+      background: rgba(0,0,0,0.4);
+      padding: 8px 16px;
+      border-radius: 6px;
+    }
+  </style>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+  <div class="carousel-container">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1584515933487-779824d29309?w=1600');">
+      <h2>Protege tu Salud</h2>
+      <p>Las vacunas previenen enfermedades graves.</p>
+    </div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=1600');">
+      <h2>Cuidado Infantil</h2>
+      <p>La vacunación es clave en los primeros años de vida.</p>
+    </div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=1600');">
+      <h2>Centros de Vacunación</h2>
+      <p>Accede de forma gratuita en tu hospital más cercano.</p>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showSlide(index) {
+      // Ocultar todas
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        slide.style.opacity = 0;
+      });
+
+      // Mostrar la actual
+      const slide = slides[index];
+      slide.classList.add('active');
+
+      // Animación con GSAP
+      gsap.fromTo(slide, { opacity: 0 }, { opacity: 1, duration: 1 });
+      gsap.from(slide.querySelector('h2'), { y: -50, opacity: 0, duration: 1, delay: 0.2 });
+      gsap.from(slide.querySelector('p'), { y: 50, opacity: 0, duration: 1, delay: 0.4 });
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    // Inicial
+    showSlide(current);
+
+    // Cambiar cada 4s
+    setInterval(nextSlide, 4000);
+  </script>
+</body>
+</html>
