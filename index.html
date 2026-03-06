@@ -29,12 +29,7 @@
             transform: translateY(40px);
             animation: fadeInUp 0.7s cubic-bezier(.77,0,.18,1) forwards, loaderPulse 1.2s infinite 0.7s;
         }
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
         @keyframes loaderPulse {
             0% { filter: brightness(1); }
             50% { filter: brightness(2); }
@@ -43,10 +38,7 @@
         .loader-text::before {
             content: 'PRESINF';
             position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+            left: 0; top: 0; width: 100%; height: 100%;
             color: #fff;
             background: linear-gradient(120deg, transparent 0%, transparent 35%, rgba(255,255,255,1) 50%, transparent 65%, transparent 100%);
             filter: blur(1px) brightness(2);
@@ -56,20 +48,119 @@
             animation: shine 1.2s infinite;
         }
         @keyframes shine {
-            0% {
-                background-position: -200% 0;
-            }
-            100% {
-                background-position: 200% 0;
-            }
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
+
+        /* ══════════════════════════════════
+           CHATBOT
+        ══════════════════════════════════ */
+        #vac-fab {
+            position: fixed; bottom: 28px; right: 28px; z-index: 9000;
+            width: 62px; height: 62px; border-radius: 50%;
+            background: linear-gradient(135deg, #1d4ed8, #0891b2);
+            border: none; cursor: pointer;
+            box-shadow: 0 6px 24px rgba(29,78,216,.45);
+            display: flex; align-items: center; justify-content: center;
+            transition: transform .25s, box-shadow .25s;
+        }
+        #vac-fab:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(29,78,216,.55); }
+        #vac-fab svg { width: 30px; height: 30px; color: #fff; pointer-events: none; }
+        #vac-badge {
+            position: absolute; top: -4px; right: -4px;
+            background: #ef4444; color: #fff; font-size: 10px;
+            font-weight: 700; border-radius: 99px; padding: 2px 6px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        #vac-window {
+            position: fixed; bottom: 104px; right: 28px; z-index: 9000;
+            width: 360px; max-height: 540px;
+            background: #fff; border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.18);
+            display: flex; flex-direction: column;
+            overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif;
+            opacity: 0; pointer-events: none;
+            transform: translateY(16px) scale(.97);
+            transition: opacity .25s, transform .25s;
+        }
+        #vac-window.open { opacity: 1; pointer-events: all; transform: none; }
+        .vac-header {
+            background: linear-gradient(135deg, #1d4ed8, #0891b2);
+            padding: 14px 18px; display: flex; align-items: center; gap: 12px;
+        }
+        .vac-avatar {
+            width: 38px; height: 38px; border-radius: 50%;
+            background: rgba(255,255,255,.2);
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .vac-avatar svg { width: 22px; height: 22px; color: #fff; }
+        .vac-header-text { flex: 1; }
+        .vac-header-text strong { display: block; color: #fff; font-size: 14px; }
+        .vac-header-text span { color: rgba(255,255,255,.75); font-size: 12px; }
+        .vac-online { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; flex-shrink: 0; }
+        .vac-msgs {
+            flex: 1; overflow-y: auto; padding: 16px;
+            display: flex; flex-direction: column; gap: 10px;
+            background: #f8faff;
+        }
+        .vac-msgs::-webkit-scrollbar { width: 4px; }
+        .vac-msgs::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .vac-msg { display: flex; gap: 8px; align-items: flex-end; max-width: 88%; }
+        .vac-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+        .vac-bubble {
+            padding: 10px 14px; border-radius: 16px;
+            font-size: 13.5px; line-height: 1.5; word-break: break-word;
+        }
+        .vac-msg.bot .vac-bubble {
+            background: #fff; color: #1e293b;
+            border: 1px solid #e2e8f0;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 1px 4px rgba(0,0,0,.06);
+        }
+        .vac-msg.user .vac-bubble {
+            background: linear-gradient(135deg, #1d4ed8, #0891b2);
+            color: #fff; border-bottom-right-radius: 4px;
+        }
+        .vac-typing .vac-bubble { display: flex; gap: 4px; align-items: center; padding: 12px 16px; }
+        .vac-dot { width: 7px; height: 7px; border-radius: 50%; background: #94a3b8; animation: vacDot 1.2s infinite; }
+        .vac-dot:nth-child(2) { animation-delay: .2s; }
+        .vac-dot:nth-child(3) { animation-delay: .4s; }
+        @keyframes vacDot { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+        .vac-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 16px 4px; }
+        .vac-chip {
+            background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe;
+            border-radius: 99px; padding: 5px 12px; font-size: 12px; cursor: pointer;
+            transition: background .2s; font-family: inherit;
+        }
+        .vac-chip:hover { background: #dbeafe; }
+        .vac-footer {
+            padding: 12px 14px; border-top: 1px solid #e2e8f0;
+            display: flex; gap: 8px; align-items: center; background: #fff;
+        }
+        #vac-input {
+            flex: 1; border: 1.5px solid #e2e8f0; border-radius: 12px;
+            padding: 9px 14px; font-size: 13.5px; outline: none;
+            transition: border-color .2s; font-family: inherit;
+        }
+        #vac-input:focus { border-color: #3b82f6; }
+        #vac-send {
+            width: 38px; height: 38px; border-radius: 50%; border: none;
+            background: linear-gradient(135deg, #1d4ed8, #0891b2);
+            color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; transition: transform .2s, opacity .2s;
+        }
+        #vac-send:hover { transform: scale(1.08); }
+        #vac-send:disabled { opacity: .5; cursor: default; transform: none; }
+        #vac-send svg { width: 16px; height: 16px; pointer-events: none; }
     </style>
+
     <div class="loader-bg" id="loader">
         <span class="loader-text">PRESINF</span>
     </div>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VacunaSegura - Información sobre Vacunas Infantiles</title>
+    <title>PresInf - Información sobre Vacunas Infantiles</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -77,44 +168,21 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8'
-                        },
-                        cyan: {
-                            50: '#ecfeff',
-                            100: '#cffafe',
-                            500: '#06b6d4',
-                            600: '#0891b2'
-                        }
+                        primary: { 50:'#eff6ff',100:'#dbeafe',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8' },
+                        cyan:    { 50:'#ecfeff',100:'#cffafe',500:'#06b6d4',600:'#0891b2' }
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.6s ease-out',
-                        'slide-up': 'slideUp 0.8s ease-out',
-                        'bounce-gentle': 'bounceGentle 2s infinite',
-                        'pulse-slow': 'pulse 3s infinite',
-                        'float': 'float 3s ease-in-out infinite'
+                        'fade-in':'fadeIn 0.6s ease-out',
+                        'slide-up':'slideUp 0.8s ease-out',
+                        'bounce-gentle':'bounceGentle 2s infinite',
+                        'pulse-slow':'pulse 3s infinite',
+                        'float':'float 3s ease-in-out infinite'
                     },
                     keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(40px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        bounceGentle: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' }
-                        }
+                        fadeIn:      {'0%':{opacity:'0',transform:'translateY(20px)'},'100%':{opacity:'1',transform:'translateY(0)'}},
+                        slideUp:     {'0%':{opacity:'0',transform:'translateY(40px)'},'100%':{opacity:'1',transform:'translateY(0)'}},
+                        bounceGentle:{'0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-10px)'}},
+                        float:       {'0%,100%':{transform:'translateY(0px)'},'50%':{transform:'translateY(-20px)'}}
                     }
                 }
             }
@@ -123,99 +191,293 @@
 </head>
 
 <body class="bg-gradient-to-br from-blue-50 to-cyan-50 min-h-screen">
+
+    <!-- ══════════════════ CHATBOT ══════════════════ -->
+    <button id="vac-fab" title="Consultar sobre vacunas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span id="vac-badge">1</span>
+    </button>
+
+    <div id="vac-window">
+        <div class="vac-header">
+            <div class="vac-avatar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+            </div>
+            <div class="vac-header-text">
+                <strong>Asistente de Vacunas</strong>
+                <span>PresInf · Información confiable</span>
+            </div>
+            <div class="vac-online"></div>
+        </div>
+
+        <div class="vac-msgs" id="vac-msgs"></div>
+
+        <div class="vac-chips" id="vac-chips">
+            <button class="vac-chip">¿Qué vacunas necesita un bebé?</button>
+            <button class="vac-chip">¿Son seguras las vacunas?</button>
+            <button class="vac-chip">¿Qué es la inmunidad colectiva?</button>
+            <button class="vac-chip">Efectos secundarios comunes</button>
+        </div>
+
+        <div class="vac-footer">
+            <input id="vac-input" type="text" placeholder="Escribí tu pregunta sobre vacunas…">
+            <button id="vac-send">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        /* ── Base de conocimiento ── */
+        const KB = [
+            {
+                keys: ['bebé','bebe','recién nacido','recien nacido','0 mes','primer mes','nacimiento','neonato'],
+                r: '🍼 <strong>Vacunas para recién nacidos y bebés:</strong><br>Al nacer: <strong>BCG</strong> (tuberculosis) y <strong>Hepatitis B</strong>.<br>A los 2 meses: Pentavalente (difteria, tétanos, tos ferina, Hib, polio) + Neumococo + Rotavirus.<br>A los 4 meses: segunda dosis de las mismas.<br>A los 6 meses: tercera dosis + Meningococo.<br><br>Consultá siempre el calendario oficial y tu pediatra. 💙'
+            },
+            {
+                keys: ['segur','peligros','riesgo','confiable','fiable','efectos negativos','daño','daño','tóxico','toxico'],
+                r: '✅ <strong>¿Son seguras las vacunas?</strong><br>Sí. Las vacunas pasan años de ensayos clínicos antes de aprobarse y tienen vigilancia continua post-comercialización.<br><br>Los efectos adversos graves son extremadamente raros (menos del 0.001%). Los más comunes son leves: enrojecimiento en el lugar de la inyección, fiebre baja o irritabilidad transitoria.<br><br>El beneficio de prevenir enfermedades graves supera ampliamente cualquier riesgo. 🛡️'
+            },
+            {
+                keys: ['inmunidad colectiva','rebaño','herd','comunidad','comunitaria','barrera'],
+                r: '🌍 <strong>Inmunidad colectiva:</strong><br>Cuando una gran parte de la población está vacunada, el virus o bacteria no puede propagarse fácilmente, protegiendo incluso a quienes no pueden vacunarse (bebés muy pequeños, inmunocomprometidos).<br><br>Por ejemplo, para el sarampión se necesita ~95% de cobertura para lograr esta protección comunitaria. Es por eso que la vacunación es un acto solidario. 💪'
+            },
+            {
+                keys: ['efecto secundario','efectos secundarios','reacción','reacciones','fiebre','dolor','enrojecimiento','llora','molestia'],
+                r: '💊 <strong>Efectos secundarios comunes (y normales):</strong><br>• <strong>Locales:</strong> enrojecimiento, hinchazón o dolor leve en el sitio de inyección.<br>• <strong>Generales:</strong> fiebre baja (37–38°C), irritabilidad o somnolencia por 1–2 días.<br><br>Estos efectos son señal de que el sistema inmune está respondiendo. Podés darle paracetamol según indicación del pediatra.<br><br>Si la fiebre supera 39°C o persiste más de 48 hs, consultá al médico. 🩺'
+            },
+            {
+                keys: ['calendario','esquema','plan','cuándo','cuando','edad','cronograma'],
+                r: '📅 <strong>Calendario Nacional de Vacunación Argentina:</strong><br>El esquema cubre desde el nacimiento hasta los 18 años. Podés descargarlo oficialmente en:<br><br><a href="https://www.argentina.gob.ar/sites/default/files/2025-01-v2-calendario-nacional-vacunacion.pdf" target="_blank" style="color:#1d4ed8;text-decoration:underline;">📄 Calendario oficial del Ministerio de Salud</a><br><br>También podés verlo en la sección <strong>Calendario</strong> de esta página. 👆'
+            },
+            {
+                keys: ['sarampión','sarampion','triple','mmr','rubeola','paperas'],
+                r: '💉 <strong>Vacuna Triple Viral (Sarampión, Rubéola, Paperas):</strong><br>Se aplica a los <strong>12 meses</strong> (primera dosis) y a los <strong>5 años</strong> (segunda dosis).<br><br>Tiene una efectividad del 97-99% contra el sarampión. Con dos dosis bien aplicadas, la protección es prácticamente de por vida.<br><br>Argentina mantiene la eliminación del sarampión gracias a la alta cobertura vacunal. 🎯'
+            },
+            {
+                keys: ['polio','poliomielitis','parálisis','paralisis'],
+                r: '🦾 <strong>Vacuna antipoliomielítica:</strong><br>Se aplica a los <strong>2, 4 y 6 meses</strong> (inyectable inactivada) y un refuerzo a los <strong>15-18 meses</strong> y <strong>5 años</strong> (oral).<br><br>Argentina está libre de poliomielitis salvaje desde 1984, gracias a la vacunación sostenida. La efectividad con esquema completo es del 99%. 💪'
+            },
+            {
+                keys: ['hepatitis','hepatitisb','hepb'],
+                r: '🔬 <strong>Vacuna contra Hepatitis B:</strong><br>Primera dosis: <strong>al nacer</strong> (dentro de las 12 horas).<br>Luego a los 2, 4 y 6 meses como parte de la Pentavalente.<br><br>Efectividad: 95%. Previene la infección crónica que puede derivar en cirrosis o cáncer de hígado. 🩺'
+            },
+            {
+                keys: ['gripe','influenza','antigripal','flu'],
+                r: '🤧 <strong>Vacuna antigripal:</strong><br>Se recomienda <strong>anualmente</strong> (la cepa cambia cada año). En el calendario argentino es <strong>obligatoria y gratuita</strong> para:<br>• Menores de 2 años<br>• Embarazadas<br>• Mayores de 65 años<br>• Personal de salud<br>• Personas con enfermedades crónicas<br><br>La mejor época para vacunarse es <strong>otoño</strong>, antes del pico de invierno. 🍂'
+            },
+            {
+                keys: ['covid','coronavirus','sars'],
+                r: '🦠 <strong>Vacuna COVID-19:</strong><br>La OMS recomienda la vacunación contra COVID-19 en niños a partir de los 6 meses, especialmente los de riesgo.<br><br>En Argentina, la vacunación COVID en menores se aplica según disponibilidad y criterio médico. Consultá con tu pediatra el esquema actualizado, ya que las recomendaciones se revisan periódicamente. 📋'
+            },
+            {
+                keys: ['neumococo','neumonia','neumonía','meningitis'],
+                r: '🫁 <strong>Vacuna antineumocócica:</strong><br>Se aplica a los <strong>2, 4 y 12 meses</strong>. Protege contra bacterias que causan neumonía, meningitis y otitis.<br><br>Desde su incorporación al calendario argentino (2012), la hospitalización por neumonía en menores de 2 años disminuyó un 30%. 📉'
+            },
+            {
+                keys: ['varicela','chickenpox','pox'],
+                r: '🌟 <strong>Vacuna contra la Varicela:</strong><br>Se aplica a los <strong>15 meses</strong> (una dosis en el calendario nacional).<br><br>Efectividad: 90% contra la infección y casi 100% contra formas graves. Previene también el herpes zóster en la adultez, ya que es causado por el mismo virus. 🛡️'
+            },
+            {
+                keys: ['meningococo','meningococc','meningitis bacteriana'],
+                r: '🧠 <strong>Vacuna antimeningocócica:</strong><br>En Argentina se aplica a los <strong>3 y 5 meses</strong> (conjugada C) y un refuerzo a los <strong>15 meses</strong>.<br><br>Protege contra la meningitis bacteriana, una enfermedad muy grave que puede causar secuelas permanentes. La vacunación redujo los casos en un 90%. ✅'
+            },
+            {
+                keys: ['rotavirus','diarrea','gastroenteritis'],
+                r: '💧 <strong>Vacuna contra Rotavirus:</strong><br>Se aplica <strong>por vía oral</strong> a los <strong>2 y 4 meses</strong>. Es la principal causa de diarrea grave en menores de 5 años.<br><br>Desde su incorporación al calendario argentino (2015), las hospitalizaciones por diarrea severa en bebés disminuyeron notablemente. 🍼'
+            },
+            {
+                keys: ['embarazada','embarazo','gestante','mamá','mama','prenatal'],
+                r: '🤰 <strong>Vacunas durante el embarazo:</strong><br>Son <strong>seguras y recomendadas</strong>:<br>• <strong>dTpa</strong> (tos ferina, tétanos, difteria): a partir de la semana 20, en cada embarazo.<br>• <strong>Antigripal:</strong> en cualquier trimestre.<br>• <strong>Hepatitis B</strong>: si no está vacunada.<br><br>Estas vacunas también protegen al bebé en sus primeros meses de vida antes de poder vacunarse. 💙'
+            },
+            {
+                keys: ['gratuita','gratis','costo','precio','pagar','obra social','público','publico'],
+                r: '💰 <strong>¿Las vacunas son gratuitas?</strong><br>Sí. En Argentina, todas las vacunas del <strong>Calendario Nacional de Vacunación</strong> son <strong>gratuitas y obligatorias</strong>, sin importar la obra social.<br><br>Se aplican en todos los centros de salud públicos. Ante cualquier duda, podés llamar al <strong>0800-222-1002</strong> (ANMAT). 🏥'
+            },
+            {
+                keys: ['dónde','donde','centro','vacunatorio','hospital','salud','aplicar'],
+                r: '📍 <strong>¿Dónde vacunarse?</strong><br>Podés aplicarte las vacunas del calendario en:<br>• Cualquier <strong>centro de salud público</strong> de tu municipio.<br>• <strong>Hospitales públicos</strong> pediátricos.<br>• Consultorios privados y clínicas (con receta médica para las no incluidas en el calendario).<br><br>Para encontrar el centro más cercano, consultá en la web de tu municipio o llamá al <strong>0800-222-1002</strong>. 🗺️'
+            },
+            {
+                keys: ['hola','buenas','buenos días','buenas tardes','buenas noches','hey','saludos'],
+                r: '👋 ¡Hola! Soy el asistente de vacunación de <strong>PresInf</strong>. Puedo ayudarte con preguntas sobre:<br>• Calendarios de vacunación<br>• Vacunas específicas<br>• Efectos secundarios<br>• Seguridad y eficacia<br>• Dónde vacunarse<br><br>¿Qué querés saber? 💙'
+            }
+        ];
+
+        const FALLBACK = '🤔 No encontré información específica sobre eso. Te recomiendo:<br>• Consultar con tu <strong>pediatra</strong> para casos particulares.<br>• Llamar al <strong>0800-222-1002</strong> (ANMAT, gratuito).<br>• Visitar <a href="https://www.argentina.gob.ar/salud/vacunas" target="_blank" style="color:#1d4ed8;text-decoration:underline">argentina.gob.ar/salud/vacunas</a>.<br><br>¿Tenés otra consulta sobre vacunas? Estoy para ayudarte. 💙';
+
+        function getReply(text) {
+            const t = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            for (const entry of KB) {
+                if (entry.keys.some(k => t.includes(k.normalize('NFD').replace(/[\u0300-\u036f]/g, '')))) {
+                    return entry.r;
+                }
+            }
+            return FALLBACK;
+        }
+
+        /* ── UI ── */
+        const msgsEl  = document.getElementById('vac-msgs');
+        const inputEl = document.getElementById('vac-input');
+        const sendBtn = document.getElementById('vac-send');
+        const badgeEl = document.getElementById('vac-badge');
+        const chipsEl = document.getElementById('vac-chips');
+        const fabEl   = document.getElementById('vac-fab');
+        const winEl   = document.getElementById('vac-window');
+        let open = false;
+
+        addBotMsg('¡Hola! 👋 Soy el asistente de vacunación de <strong>PresInf</strong>. Podés preguntarme cualquier cosa sobre vacunas infantiles: calendarios, efectos secundarios, seguridad y más.');
+
+        fabEl.addEventListener('click', () => {
+            open = !open;
+            winEl.classList.toggle('open', open);
+            if (open) { badgeEl.style.display = 'none'; inputEl.focus(); scrollDown(); }
+        });
+
+        chipsEl.querySelectorAll('.vac-chip').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const text = btn.textContent.trim();
+                chipsEl.style.display = 'none';
+                sendMessage(text);
+            });
+        });
+
+        sendBtn.addEventListener('click', doSend);
+        inputEl.addEventListener('keydown', e => { if (e.key === 'Enter') doSend(); });
+
+        function doSend() {
+            const text = inputEl.value.trim();
+            if (!text) return;
+            inputEl.value = '';
+            chipsEl.style.display = 'none';
+            sendMessage(text);
+        }
+
+        function sendMessage(text) {
+            addUserMsg(text);
+            sendBtn.disabled = true;
+            const typingEl = addTyping();
+            scrollDown();
+            /* Simula un pequeño delay para que se vea natural */
+            setTimeout(() => {
+                typingEl.remove();
+                addBotMsg(getReply(text));
+                sendBtn.disabled = false;
+                inputEl.focus();
+                scrollDown();
+            }, 700 + Math.random() * 500);
+        }
+
+        function addUserMsg(text) {
+            const el = document.createElement('div');
+            el.className = 'vac-msg user';
+            el.innerHTML = `<div class="vac-bubble">${esc(text)}</div>`;
+            msgsEl.appendChild(el); scrollDown();
+        }
+
+        function addBotMsg(html) {
+            const el = document.createElement('div');
+            el.className = 'vac-msg bot';
+            el.innerHTML = `<div class="vac-bubble">${html}</div>`;
+            msgsEl.appendChild(el); scrollDown();
+        }
+
+        function addTyping() {
+            const el = document.createElement('div');
+            el.className = 'vac-msg bot vac-typing';
+            el.innerHTML = '<div class="vac-bubble"><span class="vac-dot"></span><span class="vac-dot"></span><span class="vac-dot"></span></div>';
+            msgsEl.appendChild(el); return el;
+        }
+
+        function scrollDown() { setTimeout(() => msgsEl.scrollTop = msgsEl.scrollHeight, 50); }
+        function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    })();
+    </script>
+    <!-- ══════════════════ FIN CHATBOT ══════════════════ -->
+
     <!-- Header -->
-    <header class="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-blue-100 ">
+    <header class="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-blue-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-3 animate-fade-in">
-
-                    <h1
-                        class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                        PresInf</h1>
+                    <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">PresInf</h1>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#inicio"
-                        class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Inicio</a>
-                    <a href="#noticias"
-                        class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Noticias</a>
-                    <a href="#informes"
-                        class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Informes</a>
-                    <a href="#calendario"
-                        class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Calendario</a>
-
+                    <a href="#inicio"    class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Inicio</a>
+                    <a href="#noticias"  class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Noticias</a>
+                    <a href="#informes"  class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Informes</a>
+                    <a href="#calendario" class="text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 font-medium">Calendario</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-            <section id="inicio" class="relative flex items-center justify-center overflow-hidden h-[75vh]">
-
-               <div id="carousel" class="absolute inset-0 w-full z-0">
-
-                    <img src="img/1.jpeg" class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" style="min-height:100vh;" />
-                    <img src="img/centroMedico.jpg" class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" style="min-height:100vh;" />
-                    <img src="img/2.jpeg" class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" style="min-height:100vh;" />
-                </div>
-                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                <div class="relative z-20 flex flex-col items-center justify-center text-center px-4">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-                        Protege el <span class="bg-gradient-to-r from-blue-300 to-cyan-200 bg-clip-text text-transparent">Futuro</span>
-                    </h2>
-                    <p class="text-lg text-white mb-6 max-w-2xl mx-auto leading-relaxed drop-shadow">
-                        Las vacunas salvan millones de vidas y protegen a tu familia y comunidad.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
-                            <span>Calendario</span>
-                        </button>
-                        <button class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 bg-white bg-opacity-80">
-                            <span>Informes</span>
-                        </button>
-                    </div>
-                </div>
-                <script>
-                    // Carrusel simple JS
-                    const imgs = document.querySelectorAll('.carousel-img');
-                    let idx = 0;
-                    setInterval(() => {
-                        imgs[idx].style.opacity = 0;
-                        idx = (idx + 1) % imgs.length;
-                        imgs[idx].style.opacity = 1;
-                    }, 3500);
-                </script>
-            </section>
-        </section>
+    <section id="inicio" class="relative flex items-center justify-center overflow-hidden h-[75vh]">
+        <div id="carousel" class="absolute inset-0 w-full z-0">
+            <img src="img/1.jpeg"           class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" style="min-height:100vh;" />
+            <img src="img/centroMedico.jpg"  class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0"  style="min-height:100vh;" />
+            <img src="img/2.jpeg"           class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0"  style="min-height:100vh;" />
+        </div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-20 flex flex-col items-center justify-center text-center px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+                Protege el <span class="bg-gradient-to-r from-blue-300 to-cyan-200 bg-clip-text text-transparent">Futuro</span>
+            </h2>
+            <p class="text-lg text-white mb-6 max-w-2xl mx-auto leading-relaxed drop-shadow">
+                Las vacunas salvan millones de vidas y protegen a tu familia y comunidad.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#calendario" class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                    <span>Calendario</span>
+                </a>
+                <a href="#informes" class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
+                    <span>Informes</span>
+                </a>
+            </div>
+        </div>
+        <script>
+            const imgs = document.querySelectorAll('.carousel-img');
+            let idx = 0;
+            setInterval(() => {
+                imgs[idx].style.opacity = 0;
+                idx = (idx + 1) % imgs.length;
+                imgs[idx].style.opacity = 1;
+            }, 3500);
+        </script>
+    </section>
 
     <!-- Stats Section -->
     <section class="py-16 bg-white/50 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 animate-fade-in">
                 <h3 class="text-3xl font-bold text-gray-900 mb-4">Impacto Global de las Vacunas</h3>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Las vacunas han transformado la salud pública mundial
-                </p>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Las vacunas han transformado la salud pública mundial</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div
-                    class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float">
                     <div class="text-4xl font-bold text-blue-600 mb-2">2-3M</div>
                     <div class="text-gray-900 font-semibold mb-1">Vidas salvadas anualmente</div>
                     <div class="text-sm text-gray-500">Según datos de la OMS</div>
                 </div>
-                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float"
-                    style="animation-delay: 0.2s">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float" style="animation-delay:0.2s">
                     <div class="text-4xl font-bold text-cyan-600 mb-2">95%</div>
                     <div class="text-gray-900 font-semibold mb-1">Efectividad promedio</div>
                     <div class="text-sm text-gray-500">En prevención de enfermedades</div>
                 </div>
-                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float"
-                    style="animation-delay: 0.4s">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float" style="animation-delay:0.4s">
                     <div class="text-4xl font-bold text-blue-600 mb-2">20+</div>
                     <div class="text-gray-900 font-semibold mb-1">Enfermedades prevenibles</div>
                     <div class="text-sm text-gray-500">Incluidas en esquemas nacionales</div>
                 </div>
-                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float"
-                    style="animation-delay: 0.6s">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float" style="animation-delay:0.6s">
                     <div class="text-4xl font-bold text-cyan-600 mb-2">200+</div>
                     <div class="text-gray-900 font-semibold mb-1">Años de investigación</div>
                     <div class="text-sm text-gray-500">Desde la primera vacuna</div>
@@ -229,91 +491,57 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-fade-in">
                 <h3 class="text-4xl font-bold text-gray-900 mb-4">¿Por Qué Son Tan Importantes las Vacunas?</h3>
-                <p class="text-xl text-gray-600">Entender el impacto real de la vacunación en la salud infantil y
-                    comunitaria</p>
+                <p class="text-xl text-gray-600">Entender el impacto real de la vacunación en la salud infantil y comunitaria</p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-                <div
-                    class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up">
+                <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up">
                     <div class="flex items-center mb-6">
                         <div class="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl mr-4">
-                            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>
+                            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                         </div>
                         <h4 class="text-2xl font-bold text-gray-900">Protección Individual</h4>
                     </div>
-                    <p class="text-gray-700 mb-4 leading-relaxed">Las vacunas entrenan al sistema inmunológico para
-                        reconocer y combatir enfermedades específicas. Cuando tu hijo está vacunado, su cuerpo puede
-                        responder rápidamente si se expone a la enfermedad real.</p>
-                    <p class="text-gray-700 leading-relaxed">Esto significa que es mucho menos probable que contraiga la
-                        enfermedad, y si lo hace, los síntomas suelen ser más leves y de menor duración.</p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Las vacunas entrenan al sistema inmunológico para reconocer y combatir enfermedades específicas. Cuando tu hijo está vacunado, su cuerpo puede responder rápidamente si se expone a la enfermedad real.</p>
+                    <p class="text-gray-700 leading-relaxed">Esto significa que es mucho menos probable que contraiga la enfermedad, y si lo hace, los síntomas suelen ser más leves y de menor duración.</p>
                 </div>
-                <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up"
-                    style="animation-delay: 0.2s">
+                <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-slide-up" style="animation-delay:0.2s">
                     <div class="flex items-center mb-6">
                         <div class="p-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl mr-4">
-                            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                <polyline points="22,4 12,14.01 9,11.01" />
-                            </svg>
+                            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
                         </div>
                         <h4 class="text-2xl font-bold text-gray-900">Inmunidad Colectiva</h4>
                     </div>
-                    <p class="text-gray-700 mb-4 leading-relaxed">Cuando la mayoría de la comunidad está vacunada, se
-                        crea una "barrera" de protección que beneficia a todos, especialmente a bebés muy pequeños,
-                        personas con sistemas inmunológicos debilitados.</p>
-                    <p class="text-gray-700 leading-relaxed">Esta protección comunitaria ha logrado erradicar
-                        enfermedades como la polio en muchas partes del mundo.</p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Cuando la mayoría de la comunidad está vacunada, se crea una "barrera" de protección que beneficia a todos, especialmente a bebés muy pequeños y personas con sistemas inmunológicos debilitados.</p>
+                    <p class="text-gray-700 leading-relaxed">Esta protección comunitaria ha logrado erradicar enfermedades como la polio en muchas partes del mundo.</p>
                 </div>
             </div>
 
-            <!-- Diseases Grid -->
             <div class="bg-white rounded-2xl p-8 shadow-xl animate-fade-in">
-                <h4 class="text-2xl font-bold text-gray-900 mb-8 text-center">Enfermedades Prevenibles por Vacunación
-                </h4>
+                <h4 class="text-2xl font-bold text-gray-900 mb-8 text-center">Enfermedades Prevenibles por Vacunación</h4>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div
-                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                        <div class="font-bold text-gray-900 mb-2">Sarampión</div>
-                        <div class="text-blue-600 font-semibold">99% efectividad</div>
+                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        <div class="font-bold text-gray-900 mb-2">Sarampión</div><div class="text-blue-600 font-semibold">99% efectividad</div>
                     </div>
-                    <div
-                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                        <div class="font-bold text-gray-900 mb-2">Poliomielitis</div>
-                        <div class="text-blue-600 font-semibold">99% efectividad</div>
+                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        <div class="font-bold text-gray-900 mb-2">Poliomielitis</div><div class="text-blue-600 font-semibold">99% efectividad</div>
                     </div>
-                    <div
-                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                        <div class="font-bold text-gray-900 mb-2">Hepatitis B</div>
-                        <div class="text-cyan-600 font-semibold">95% efectividad</div>
+                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        <div class="font-bold text-gray-900 mb-2">Hepatitis B</div><div class="text-cyan-600 font-semibold">95% efectividad</div>
                     </div>
-                    <div
-                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                        <div class="font-bold text-gray-900 mb-2">Tos Ferina</div>
-                        <div class="text-cyan-600 font-semibold">85% efectividad</div>
+                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        <div class="font-bold text-gray-900 mb-2">Tos Ferina</div><div class="text-cyan-600 font-semibold">85% efectividad</div>
                     </div>
-                    <div
-                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                        <div class="font-bold text-gray-900 mb-2">Difteria</div>
-                        <div class="text-blue-600 font-semibold">97% efectividad</div>
+                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        <div class="font-bold text-gray-900 mb-2">Difteria</div><div class="text-blue-600 font-semibold">97% efectividad</div>
                     </div>
-                    <div
-                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                        <div class="font-bold text-gray-900 mb-2">Tétanos</div>
-                        <div class="text-blue-600 font-semibold">100% efectividad</div>
+                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        <div class="font-bold text-gray-900 mb-2">Tétanos</div><div class="text-blue-600 font-semibold">100% efectividad</div>
                     </div>
-                    <div
-                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                        <div class="font-bold text-gray-900 mb-2">Varicela</div>
-                        <div class="text-cyan-600 font-semibold">90% efectividad</div>
+                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        <div class="font-bold text-gray-900 mb-2">Varicela</div><div class="text-cyan-600 font-semibold">90% efectividad</div>
                     </div>
-                    <div
-                        class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                        <div class="font-bold text-gray-900 mb-2">Paperas</div>
-                        <div class="text-cyan-600 font-semibold">88% efectividad</div>
+                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        <div class="font-bold text-gray-900 mb-2">Paperas</div><div class="text-cyan-600 font-semibold">88% efectividad</div>
                     </div>
                 </div>
             </div>
@@ -325,288 +553,147 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-fade-in">
                 <h3 class="text-4xl font-bold text-gray-900 mb-4">Últimas Noticias</h3>
-                <p class="text-xl text-gray-600">Mantente informado con las últimas actualizaciones sobre vacunación
-                    infantil</p>
+                <p class="text-xl text-gray-600">Mantente informado con las últimas actualizaciones sobre vacunación infantil</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article
-                    class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up">
+                <article class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up">
                     <div class="relative">
-                        <!-- Updated image path to img folder -->
-                        <img src="img/c1.webp" alt="OMS"
-                            class="w-full h-48 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">OMS</span>
-                        </div>
+                        <img src="img/c1.webp" alt="OMS" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4"><span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">OMS</span></div>
                     </div>
                     <div class="p-6">
-                        <h4
-                            class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">
-                            Nueva Recomendación para Vacuna COVID-19 en Niños</h4>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">Nueva Recomendación para Vacuna COVID-19 en Niños</h4>
                         <div class="flex items-center text-gray-500 text-sm mb-4">
-                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12,6 12,12 16,14" />
-                            </svg>
+                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
                             Hace 2 días
                         </div>
-                        <p class="text-gray-700 leading-relaxed">La OMS actualiza sus recomendaciones para la vacunación
-                            contra COVID-19 en población pediátrica, con una reducción del 80% en hospitalizaciones.</p>
+                        <p class="text-gray-700 leading-relaxed">La OMS actualiza sus recomendaciones para la vacunación contra COVID-19 en población pediátrica, con una reducción del 80% en hospitalizaciones.</p>
                     </div>
                 </article>
-
-                <article
-                    class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up"
-                    style="animation-delay: 0.2s">
+                <article class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up" style="animation-delay:0.2s">
                     <div class="relative">
-                        <!-- Updated image path to img folder -->
-                        <img src="img/c2.webp" alt="Campaña Nacional"
-                            class="w-full h-48 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Ministerio
-                                de Salud</span>
-                        </div>
+                        <img src="img/c2.webp" alt="Campaña Nacional" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4"><span class="bg-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Ministerio de Salud</span></div>
                     </div>
                     <div class="p-6">
-                        <h4
-                            class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">
-                            Campaña Nacional de Vacunación 2024</h4>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">Campaña Nacional de Vacunación 2024</h4>
                         <div class="flex items-center text-gray-500 text-sm mb-4">
-                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12,6 12,12 16,14" />
-                            </svg>
+                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
                             Hace 1 semana
                         </div>
-                        <p class="text-gray-700 leading-relaxed">Campaña de 6 meses con objetivo de alcanzar 95% de
-                            cobertura en niños menores de 5 años, con énfasis en comunidades rurales.</p>
+                        <p class="text-gray-700 leading-relaxed">Campaña de 6 meses con objetivo de alcanzar 95% de cobertura en niños menores de 5 años, con énfasis en comunidades rurales.</p>
                     </div>
                 </article>
-
-                <article
-                    class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up"
-                    style="animation-delay: 0.4s">
+                <article class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up" style="animation-delay:0.4s">
                     <div class="relative">
-                        <!-- Updated image path to img folder -->
-                        <img src="img/c3.webp" alt="Investigación"
-                            class="w-full h-48 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span
-                                class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Investigación</span>
-                        </div>
+                        <img src="img/c3.webp" alt="Investigación" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4"><span class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Investigación</span></div>
                     </div>
                     <div class="p-6">
-                        <h4
-                            class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">
-                            Estudio Confirma Seguridad de Vacunas Combinadas</h4>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-300">Estudio Confirma Seguridad de Vacunas Combinadas</h4>
                         <div class="flex items-center text-gray-500 text-sm mb-4">
-                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12,6 12,12 16,14" />
-                            </svg>
+                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
                             Hace 2 semanas
                         </div>
-                        <p class="text-gray-700 leading-relaxed">Estudio de 10 años con 250,000 niños confirma que las
-                            vacunas combinadas mantienen la misma efectividad sin aumentar riesgos.</p>
+                        <p class="text-gray-700 leading-relaxed">Estudio de 10 años con 250,000 niños confirma que las vacunas combinadas mantienen la misma efectividad sin aumentar riesgos.</p>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-<!-- Medical Reports Section -->
-<section id="informes" class="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 animate-fade-in">
-            <h3 class="text-4xl font-bold text-gray-900 mb-4">Informes Médicos</h3>
-            <p class="text-xl text-gray-600">Documentos científicos y reportes oficiales sobre vacunación</p>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
-            <!-- Reporte Anual -->
-            <div
-                class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up">
-                <div class="relative">
-                    <img src="img/medical-safety-report-charts-and-graphs-showing-va.png" alt="Reporte de Seguridad"
-                        class="w-full h-64 object-cover">
-                    <div class="absolute top-4 right-4">
-                        <span
-                            class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2024</span>
-                    </div>
-                </div>
-                <div class="p-8">
-                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Reporte Anual de Seguridad en Vacunas</h4>
-                    <p class="text-gray-600 mb-6">Análisis completo de eventos adversos y eficacia</p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                <polyline points="22,4 12,14.01 9,11.01" />
-                            </svg>
-                            Análisis de 50 millones de dosis administradas
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                <polyline points="22,4 12,14.01 9,11.01" />
-                            </svg>
-                            Tasa de eventos adversos graves: 0.001%
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                <polyline points="22,4 12,14.01 9,11.01" />
-                            </svg>
-                            Eficacia promedio: 94.2%
-                        </div>
-                    </div>
-                    <!-- Botón de descarga -->
-                    <a href="docs/informe-medico.pdf" download
-                        class="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                            <polyline points="14,2 14,8 20,8" />
-                        </svg>
-                        <span>Descargar Reporte Completo</span>
-                    </a>
-                </div>
+    <!-- Medical Reports Section -->
+    <section id="informes" class="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h3 class="text-4xl font-bold text-gray-900 mb-4">Informes Médicos</h3>
+                <p class="text-xl text-gray-600">Documentos científicos y reportes oficiales sobre vacunación</p>
             </div>
-
-            <!-- Guía Clínica -->
-            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up"
-                style="animation-delay: 0.2s">
-                <div class="relative">
-                    <img src="img/g1.webp" alt="Guía Clínica"
-                        class="w-full h-64 object-cover">
-                    <div class="absolute top-4 right-4">
-                        <span
-                            class="bg-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Actualizada</span>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up">
+                    <div class="relative">
+                        <img src="img/medical-safety-report-charts-and-graphs-showing-va.png" alt="Reporte de Seguridad" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4"><span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2024</span></div>
                     </div>
-                </div>
-                <div class="p-8">
-                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Guía Clínica de Vacunación Infantil</h4>
-                    <p class="text-gray-600 mb-6">Protocolo médico para profesionales de la salud</p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                <polyline points="22,4 12,14.01 9,11.01" />
-                            </svg>
-                            Esquemas de vacunación por edad
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4">Reporte Anual de Seguridad en Vacunas</h4>
+                        <p class="text-gray-600 mb-6">Análisis completo de eventos adversos y eficacia</p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center text-gray-700"><svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>Análisis de 50 millones de dosis administradas</div>
+                            <div class="flex items-center text-gray-700"><svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>Tasa de eventos adversos graves: 0.001%</div>
+                            <div class="flex items-center text-gray-700"><svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>Eficacia promedio: 94.2%</div>
                         </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                <polyline points="22,4 12,14.01 9,11.01" />
-                            </svg>
-                            Contraindicaciones y precauciones
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                <polyline points="22,4 12,14.01 9,11.01" />
-                            </svg>
-                            Manejo de reacciones adversas
-                        </div>
-                    </div>
-                    <!-- Botón de descarga -->
-                    <a href="docs/guia-clinica.pdf" download
-                        class="w-full border-2 border-blue-600 text-blue-600 py-3 px-6 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                            <polyline points="14,2 14,8 20,8" />
-                        </svg>
-                        <span>Adquirir Guía Completa</span>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- Vaccination Calendar -->
-<section id="calendario" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 animate-fade-in">
-            <h3 class="text-4xl font-bold text-gray-900 mb-4">Calendario de Vacunación</h3>
-            <p class="text-xl text-gray-600">Esquema oficial de vacunación para niños de 0 a 18 años</p>
-        </div>
-        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
-            <div class="lg:flex">
-                <div class="lg:w-1/2">
-                    <img src="img/vaccination-calendar-timeline-showing-different-ag.png" alt="Calendario de Vacunación"
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="lg:w-1/2 p-8 lg:p-12">
-                    <div class="flex items-center mb-8">
-                      
-                    </div>
-
-                   
-
-                
-                    <div class="flex flex-col items-center space-y-6 mt-8">
-                        <a href="./img/cale.jpg" download
-                            class="w-full md:w-auto bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                                <line x1="16" y1="2" x2="16" y2="6" />
-                                <line x1="8" y1="2" x2="8" y2="6" />
-                                <line x1="3" y1="10" x2="21" y2="10" />
-                            </svg>
-                            <span>Descargar Calendario Completo</span>
+                        <a href="docs/informe-medico.pdf" download class="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                            <span>Descargar Reporte Completo</span>
                         </a>
-                        <div id="qrCalendario" class="p-4 bg-white rounded-2xl shadow-2xl"></div>
                     </div>
-
+                </div>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden animate-slide-up" style="animation-delay:0.2s">
+                    <div class="relative">
+                        <img src="img/g1.webp" alt="Guía Clínica" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4"><span class="bg-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Actualizada</span></div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4">Guía Clínica de Vacunación Infantil</h4>
+                        <p class="text-gray-600 mb-6">Protocolo médico para profesionales de la salud</p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center text-gray-700"><svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>Esquemas de vacunación por edad</div>
+                            <div class="flex items-center text-gray-700"><svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>Contraindicaciones y precauciones</div>
+                            <div class="flex items-center text-gray-700"><svg class="w-5 h-5 text-green-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>Manejo de reacciones adversas</div>
+                        </div>
+                        <a href="docs/guia-clinica.pdf" download class="w-full border-2 border-blue-600 text-blue-600 py-3 px-6 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                            <span>Adquirir Guía Completa</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Vaccination Calendar -->
+    <section id="calendario" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h3 class="text-4xl font-bold text-gray-900 mb-4">Calendario de Vacunación</h3>
+                <p class="text-xl text-gray-600">Esquema oficial de vacunación para niños de 0 a 18 años</p>
+            </div>
+            <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
+                <div class="lg:flex">
+                    <div class="lg:w-1/2">
+                        <img src="img/vaccination-calendar-timeline-showing-different-ag.png" alt="Calendario de Vacunación" class="w-full h-full object-cover">
+                    </div>
+                    <div class="lg:w-1/2 p-8 lg:p-12">
+                        <div class="flex flex-col items-center space-y-6 mt-8">
+                            <a href="./img/cale.jpg" download class="w-full md:w-auto bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                <span>Descargar Calendario Completo</span>
+                            </a>
+                            <div id="qrCalendario" class="p-4 bg-white rounded-2xl shadow-2xl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex justify-center items-center mt-8">
+        <a id="linkCalendario" href="https://www.argentina.gob.ar/sites/default/files/2025-01-v2-calendario-nacional-vacunacion.pdf" target="_blank">
+            <div id="qrCalendario2"></div>
+        </a>
     </div>
-</section>
 
-<!-- Contenedor centrado -->
-<div class="flex justify-center items-center mt-8">
-  <!-- El enlace envuelve el QR -->
-  <a id="linkCalendario" href="https://www.argentina.gob.ar/sites/default/files/2025-01-v2-calendario-nacional-vacunacion.pdf" download>
-    <div id="qrCalendario"></div>
-  </a>
-</div>
-
-<!-- Librería para generar QR -->
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
-<script>
-  // URL oficial del calendario de vacunación (Ministerio de Salud Argentina)
-  const calendarioURL = "https://www.argentina.gob.ar/sites/default/files/2025-01-v2-calendario-nacional-vacunacion.pdf";
-
-  // Generar QR
-  new QRCode(document.getElementById("qrCalendario"), {
-    text: calendarioURL,         // el QR llevará al PDF oficial
-    width: 250,                  // tamaño grande
-    height: 250,
-    colorDark: "#1E40AF",        // azul oscuro
-    colorLight: "#ffffff",       // fondo blanco
-    correctLevel: QRCode.CorrectLevel.H
-  });
-
-  // Enlace clickeable también apunta al PDF
-  document.getElementById("linkCalendario").href = calendarioURL;
-</script>
-
-
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script>
+        const calendarioURL = "https://www.argentina.gob.ar/sites/default/files/2025-01-v2-calendario-nacional-vacunacion.pdf";
+        new QRCode(document.getElementById("qrCalendario"), {
+            text: calendarioURL, width: 200, height: 200,
+            colorDark: "#1E40AF", colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        document.getElementById("linkCalendario").href = calendarioURL;
+    </script>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16">
@@ -615,43 +702,31 @@
                 <div class="animate-fade-in">
                     <div class="flex items-center mb-4">
                         <div class="p-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg mr-3">
-                            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>
+                            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                         </div>
                         <h4 class="text-xl font-bold">PresInf</h4>
                     </div>
-                    <p class="text-gray-300 leading-relaxed">Información confiable sobre vacunación infantil basada en
-                        evidencia científica.</p>
+                    <p class="text-gray-300 leading-relaxed">Información confiable sobre vacunación infantil basada en evidencia científica.</p>
                 </div>
-                <div class="animate-fade-in" style="animation-delay: 0.1s">
+                <div class="animate-fade-in" style="animation-delay:0.1s">
                     <h5 class="text-lg font-semibold mb-4 text-blue-400">Recursos</h5>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Calendario
-                                de Vacunación</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Informes
-                                Médicos</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Preguntas
-                                Frecuentes</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Centros de
-                                Vacunación</a></li>
+                        <li><a href="#calendario" class="text-gray-300 hover:text-white transition-colors duration-300">Calendario de Vacunación</a></li>
+                        <li><a href="#informes"   class="text-gray-300 hover:text-white transition-colors duration-300">Informes Médicos</a></li>
+                        <li><a href="#"           class="text-gray-300 hover:text-white transition-colors duration-300">Preguntas Frecuentes</a></li>
+                        <li><a href="#"           class="text-gray-300 hover:text-white transition-colors duration-300">Centros de Vacunación</a></li>
                     </ul>
                 </div>
-                <div class="animate-fade-in" style="animation-delay: 0.2s">
+                <div class="animate-fade-in" style="animation-delay:0.2s">
                     <h5 class="text-lg font-semibold mb-4 text-cyan-400">Organizaciones</h5>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">OMS</a>
-                        </li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">UNICEF</a>
-                        </li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Ministerio
-                                de Salud</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Academia
-                                de Pediatría</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">OMS</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">UNICEF</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Ministerio de Salud</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Academia de Pediatría</a></li>
                     </ul>
                 </div>
-                <div class="animate-fade-in" style="animation-delay: 0.3s">
+                <div class="animate-fade-in" style="animation-delay:0.3s">
                     <h5 class="text-lg font-semibold mb-4 text-blue-400">Contacto</h5>
                     <ul class="space-y-2 text-gray-300">
                         <li>Email: info@vacunasegura.org</li>
@@ -661,46 +736,31 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2024 VacunaSegura. Todos los derechos reservados. Información con fines
-                    educativos únicamente.</p>
+                <p class="text-gray-400">&copy; 2024 PresInf. Todos los derechos reservados. Información con fines educativos únicamente.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Agregando JavaScript simple para navegación suave -->
     <script>
-        // Loader animado de inicio
-        window.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
+        // Loader
+        window.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
                 var loader = document.getElementById('loader');
                 loader.classList.add('hide');
-                setTimeout(function() {
-                    loader.style.display = 'none';
-                }, 400);
+                setTimeout(function () { loader.style.display = 'none'; }, 400);
             }, 1000);
         });
-    </script>
-    <script>
+
         // Navegación suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Animación de entrada para elementos cuando aparecen en viewport
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // IntersectionObserver para animaciones
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -708,9 +768,8 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        // Observar elementos con animaciones
         document.querySelectorAll('.animate-fade-in, .animate-slide-up').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
@@ -719,5 +778,4 @@
         });
     </script>
 </body>
-
 </html>
