@@ -3,3 +3,18 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
+```
+
+---
+
+**Paso 2 — Verificá que tu estructura de carpetas sea así:**
+```
+mi-proyecto/
+├── index.html        ← debe estar en la RAÍZ
+├── vercel.json       ← nuevo archivo
+├── img/
+│   ├── 1.jpeg
+│   ├── centroMedico.jpg
+│   └── ...
+└── docs/
+    └── informe-medico.pdf
